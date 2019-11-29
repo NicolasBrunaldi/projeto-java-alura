@@ -30,7 +30,7 @@ public class RelatorioProdutosController {
 	}
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public ModelAndView geraRelatorio(@RequestParam(value = "data", required = false) @NotBlank String data) throws ParseException {
+	public ModelAndView geraRelatorio(@RequestParam(value = "data", required = false) String data) throws ParseException {
 		
 		ModelAndView modelAndView = new ModelAndView("/relatorio-produtos/lista");
 		

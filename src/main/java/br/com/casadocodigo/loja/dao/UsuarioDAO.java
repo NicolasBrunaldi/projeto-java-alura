@@ -4,6 +4,9 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
 
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -31,5 +34,26 @@ public class UsuarioDAO implements UserDetailsService{
 
 	public void gravar(Usuario usuario) {
 		manager.persist(usuario);
+	}
+
+	public List<Usuario> listar() {
+
+		CriteriaBuilder criteriaBuilder = manager.getCriteriaBuilder();
+		CriteriaQuery<Usuario> query = criteriaBuilder.createQuery(Usuario.class);
+		
+		query.from(Usuario.class);
+		TypedQuery<Usuario> typedQuery = manager.createQuery(query);
+		
+		return typedQuery.getResultList();
+		
+	}
+	
+	public boolean emailJaCadastrado(String email) {
+		
+		List<Usuario> usuarios = listar();
+		for (Usuario usuario : usuarios) {
+			if(usuario.getEmail().equals(email)) return true;
+		}
+		return false;
 	}
 }
