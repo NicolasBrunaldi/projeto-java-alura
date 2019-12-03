@@ -7,6 +7,9 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Path;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -55,5 +58,10 @@ public class UsuarioDAO implements UserDetailsService{
 			if(usuario.getEmail().equals(email)) return true;
 		}
 		return false;
+	}
+
+	public void atualiza(Usuario usuario) {
+
+		manager.merge(usuario);
 	}
 }

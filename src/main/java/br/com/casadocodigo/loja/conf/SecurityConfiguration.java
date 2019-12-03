@@ -27,7 +27,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.antMatchers("/carrinho/**").permitAll()	
 			.antMatchers("/pagamento/**").permitAll()
 			.antMatchers("/relatorio-produtos/**").permitAll()
-			.antMatchers("/relatorio-produtos").permitAll()
 			.antMatchers("/").permitAll()
 			.antMatchers("/url-magica-maluca-oajksfbvad6584i57j54f9684nvi658efnoewfmnvowefnoeijn").permitAll()
 			.anyRequest().authenticated()

@@ -7,37 +7,21 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="tags"%>
 
-<c:url value="/" var="contextPath" />
-
 <tags:pageTemplate
 	titulo="Livros de Java, Android, iPhone, Ruby, PHP e muito mais ....">
 
 	<section id="index-section" class="container middle">
-		<a href="/casadocodigo/usuarios/form">Novo Usuario</a>
-		<h1>Lista de Usuarios</h1>
-		<p>${message}</p>
-		<table>
-			<thead>
-				<tr>
-					<th>Nome</th>
-					<th>Email</th>
-					<th>Roles</th>
-					<th/>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${usuarios}" var="usuario">
-					<tr>
-						<td>${usuario.nome}</td>
-						<td>${usuario.email}</td>
-						<td>[ <c:forEach items="${usuario.roles }" var="role">${role.nome}, </c:forEach>]</td>
-						<form:form action="${s:mvcUrl('UC#roleForm').arg(0, usuario.email).build()}">
-							<td><input type="image" src="${contextPath }resources/imagens/adicionar.png"></td>
-						</form:form>
-					</tr>
+		<h1>Cadastro de Permissões para ${usuario.nome}</h1>
+		<form:form action="${s:mvcUrl('UC#cadastraRoleUsuario').build()}"
+			method="post" commandName="usuario">
+			<div>
+				<c:forEach items="${roles}" var="role">
+					<label>${role.nome}</label>
+					<form:checkbox path="roles" value="${role}" />
 				</c:forEach>
-			</tbody>
-		</table>
+			</div>
+			<button type="submit">Atualizar</button>
+		</form:form>
 	</section>
 
 	<footer id="layout-footer">
