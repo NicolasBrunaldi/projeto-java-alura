@@ -23,6 +23,7 @@ public class Usuario implements UserDetails {
 	private String email;
 	private String senha;
 	private String nome;
+	private String senhaRepetida;
 
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "Usuario_Role",
@@ -95,6 +96,14 @@ public class Usuario implements UserDetails {
 	@Override
 	public boolean isEnabled() {
 		return true;
+	}
+
+	public String getSenhaRepetida() {
+		return senhaRepetida;
+	}
+
+	public void setSenhaRepetida(String senhaRepetida) {
+		this.senhaRepetida = senhaRepetida;
 	}
 	
 }

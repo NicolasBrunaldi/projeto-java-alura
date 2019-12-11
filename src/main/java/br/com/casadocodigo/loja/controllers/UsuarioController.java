@@ -65,7 +65,6 @@ public class UsuarioController {
 		}
 		
 		if(usuarioDAO.emailJaCadastrado(usuario.getEmail())){
-			redirectAttributes.addFlashAttribute("message", "Email ja cadastrado");
 			return form(usuario);
 		}
 		

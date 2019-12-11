@@ -26,8 +26,13 @@
 			</div>
 			<div class="form-group">
 				<label>senha:</label>
-				<form:input path="senha" cssClass="form-control" />
+				<input name="senha" class="form-control" type="password" value="${usuario.senha}"/>
 				<form:errors path="senha" />
+			</div>
+			<div class="form-group">
+				<label>senha repetida:</label>
+				<input name="senhaRepetida" class="form-control" type="password" value="${usuario.senhaRepetida}"/>
+				<form:errors path="senhaRepetida" />
 			</div>
 			<button type="submit">Cadastrar</button>
 		</form:form>

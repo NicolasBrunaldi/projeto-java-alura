@@ -17,11 +17,15 @@ public class UsuarioValidation implements Validator{
 	public void validate(Object target, Errors errors) {
 		ValidationUtils.rejectIfEmpty(errors, "nome", "field.required");
 		ValidationUtils.rejectIfEmpty(errors, "email", "field.required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "senhaRepetida", "field.required");
 
 		Usuario usuario = (Usuario) target;
 		if(usuario.getSenha().length() < 5) {
 			errors.rejectValue("senha", "field.required");
-		}		
+		}
+		if(!usuario.getSenha().equals(usuario.getSenhaRepetida())) {
+			errors.rejectValue("senhaRepetida", "field.required");
+		}
 	}
 	
 }
