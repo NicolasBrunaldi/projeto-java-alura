@@ -1,3 +1,12 @@
+Esse foi um projeto prático passado pela Alura para comprovar meus conhecimentos, o projeto consistia em um site chamado Casa do Código já pronto, e eu deveria implementar as seguintes funcionalidades:
+
+1) Oferecer um serviço de integração para outros sistemas que mostra um relatório sobre os produtos da Casa do Código.
+2) Uma nova integração com um web service externo para exibir os pedidos atuais dentro do sistema.
+3) Cadastro de usuários.
+4) Cadastro das permissões do usuário.
+
+O site do projeto foi desenvolvido ao longo da formação Java fornecido pela Alura, onde eu acompanhei toda sua construção.
+
 ## Ambiente 
 
  Aplicação foi testado com JRE8 e JRE9 no Apache Tomcat 7, 8, 9
